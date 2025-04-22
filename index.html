@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bouncing Ball Game</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0;
+            background-color: antiquewhite;
+        }
+
+        #mycanvas {
+            background-color: black;
+        }
+
+        #message {
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            margin-top: 16px;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            padding: 10px;
+            border-radius: 5px;
+            width: 60%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="brickHit" src="sounds/brick.mp3"></audio>
+    <audio id="paddleHit" src="sounds/paddle.mp3"></audio>
+    <audio id="lifeLost" src="sounds/life.mp3"></audio>
+    <audio id="gameWin" src="sounds/win.mp3"></audio>
+    <audio id="gameOver" src="sounds/over.mp3"></audio>
+
+    <canvas id="mycanvas" width="650" height="450"></canvas>
+    <div id="message"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
