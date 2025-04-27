@@ -1,4 +1,3 @@
-
 let canvas = document.getElementById('mycanvas');
 let ctx = canvas.getContext('2d');
 let messageDiv = document.getElementById("message");
@@ -125,12 +124,25 @@ function collisionDetection() {
                     score++;
                     brickHitSound.play();
 
+                    //increase speed after every 5 bricks
+                    if (score % 5 === 0) {
+                        if (dx > 0) {
+                            dx += 0.2;
+                        } else {
+                            dx -= 0.2;
+                        }
+                        if (dy > 0) {
+                            dy += 0.2;
+                        } else {
+                            dy -= 0.2;
+                        }
+                    }
+
                     if (score === brickRowCount * brickColumnCount) {
                         gameWinSound.play();
                         gameMessage = "🎉 Congratulations!! You've won!";
                         gamePaused = true;
                         messageDiv.textContent = gameMessage;
-                        setTimeout(() => document.location.reload(), 5000);
                     }
                 }
             }
@@ -170,14 +182,16 @@ function draw() {
                 gameMessage = "Game Over 💀";
                 gamePaused = true;
                 messageDiv.textContent = gameMessage;
+                setTimeout(() => document.location.reload(), 5000);
                 return;
             } else {
 
                 // Reset ball and paddle
                 x = canvas.width / 2;
                 y = canvas.height - 30;
-                dx = 2;
-                dy = -2;
+                //resetting speed
+                // dx = 2;
+                // dy = -2;
                 paddleX = (canvas.width - paddleWidth) / 2;
             }
         }
